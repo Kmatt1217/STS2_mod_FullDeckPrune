@@ -48,7 +48,7 @@ Copy-Item -Force $dllPath (Join-Path $packageRoot "$ModId.dll")
 if ($pckPath) {
     Copy-Item -Force $pckPath (Join-Path $packageRoot "$ModId.pck")
 } else {
-    Write-Warning "No $ModId.pck found. This is okay only if the manifest has has_pck=false."
+    Write-Warning "No $ModId.pck found. This is okay only if the manifest has hasPck=false."
 }
 
 if (Test-Path $zipPath) {
