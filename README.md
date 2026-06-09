@@ -1,21 +1,62 @@
-# STS2 Full Deck Prune
+# Full Deck Prune
 
-Slay the Spire 2 mod concept:
+Slay the Spire 2 mod.
 
-Start a run with every card for the selected base character, including starter cards and one copy of each non-starter card. After each combat, let the player remove exactly one card from the deck.
+Start a run with every eligible card for the selected base character, then remove one card after each combat.
 
-## Current Goal
+## Behavior
 
-Build the smallest working version first:
+- Each character starts with one copy of every eligible card in that character's card pool.
+- Starter Strike/Defend-style cards are reduced to one copy each.
+- Curse, status, Ancient-only, and invalid special cards are excluded.
+- Multiplayer-only cards are excluded in singleplayer.
+- Multiplayer-only cards are included in multiplayer.
+- After each combat, card rewards are reduced and a card-removal reward is added when the deck has enough removable cards.
 
-1. Load the mod in Slay the Spire 2.
-2. Detect a new run and replace the starter deck with the full card pool for the chosen base character.
-3. After each combat victory, open a remove-card choice screen.
-4. Remove the chosen card from the master deck.
+## Install
+
+Download `dist/FullDeckPrune.zip`, then extract it into the Slay the Spire 2 `mods` folder.
+
+Default Windows install path:
+
+```text
+C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2\mods\
+```
+
+After extraction, the files should look like this:
+
+```text
+mods/
+  FullDeckPrune/
+    FullDeckPrune.dll
+    FullDeckPrune.json
+```
+
+This mod depends on `BaseLib`, so BaseLib must also be installed and enabled.
+
+## Build
+
+Build the mod:
+
+```powershell
+dotnet build .\FullDeckPrune\FullDeckPrune.csproj -c Release
+```
+
+Create the installable zip:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\package-release.ps1 -Configuration Release
+```
+
+The zip is written to:
+
+```text
+dist\FullDeckPrune.zip
+```
 
 ## Development Notes
 
-STS2 modding currently uses C# / Godot / Harmony-style patches, with BaseLib as the common helper library for content and hooks.
+STS2 modding uses C# / Godot / Harmony-style patches, with BaseLib as the common helper library for content and hooks.
 
 Useful references:
 
