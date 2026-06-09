@@ -4,13 +4,10 @@
   "author": "kmatt1217",
   "description": "Start with the selected base character's full card pool, then remove one card after each combat.",
   "version": "0.1.0",
-  "hasPck": false,
-  "hasDll": true,
+  "has_pck": false,
+  "has_dll": true,
   "dependencies": [
-    {
-      "id": "BaseLib",
-      "minVersion": "v3.2.0"
-    }
+    "BaseLib"
   ],
-  "affectsGameplay": true
+  "affects_gameplay": true
 }
